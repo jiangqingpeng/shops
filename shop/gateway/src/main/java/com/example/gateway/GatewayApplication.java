@@ -1,7 +1,6 @@
 package com.example.gateway;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import filter.AccessFilter;
+import com.example.gateway.filter.AccessFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
