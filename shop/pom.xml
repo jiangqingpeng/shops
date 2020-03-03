@@ -19,7 +19,6 @@
 		<module>user</module>
 		<module>order</module>
 		<module>gateway</module>
-		<module>config-server</module>
 	</modules>
 
 	<properties>
