@@ -2,10 +2,15 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/shop" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/shop/config-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop/account" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop/auth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop/common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop/eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop/gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop/log" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop/order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop/shopping" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shop/storage" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop/user" charset="UTF-8" />
   </component>
 </project>
