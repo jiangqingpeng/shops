@@ -7,6 +7,9 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 自定义zuul的过滤器，继承ZuulFilter
+ */
 public class AccessFilter extends ZuulFilter {
     private static Logger logger = LoggerFactory.getLogger(AccessFilter.class);
 
@@ -28,7 +31,10 @@ public class AccessFilter extends ZuulFilter {
         return true;
     }
 
-    //过滤器的具体逻辑
+    /**
+     * 过滤器的具体逻辑
+     * TODO 登录拦截请求在这里实现，没有登录，不可以操作
+     **/
     @Override
     public Object run() {
         RequestContext context = RequestContext.getCurrentContext();

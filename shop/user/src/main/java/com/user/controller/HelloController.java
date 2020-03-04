@@ -1,6 +1,6 @@
 package com.user.controller;
 
-import com.user.entity.User;
+import com.common.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +18,7 @@ public class HelloController {
     }
 
     @RequestMapping("/get/user")
-    public User getUser( String name ){
+    public User getUser(String name ){
         logger.info("参数为：" + name);
         User user = new User();
         user.setAge(25);
