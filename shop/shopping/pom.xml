@@ -7,16 +7,16 @@
 		<artifactId>shop</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.storage</groupId>
-	<artifactId>storage</artifactId>
+	<groupId>com.shopping</groupId>
+	<artifactId>shopping</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>storage</name>
-	<description>库存服务</description>
+	<name>shopping</name>
+	<description>商品服务</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
 		<dependency>

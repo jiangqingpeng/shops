@@ -1,5 +1,6 @@
 package com.order.controller;
 
+import com.common.entity.UserCommon;
 import com.order.entity.User;
 import com.order.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,11 @@ public class HelloController {
     @RequestMapping("/test")
     public String test(){
         return "test";
+    }
+
+    @RequestMapping("/userCommon")
+    public UserCommon userCommon(){
+        UserCommon userCommon = new UserCommon("张三", "男", 20);
+        return userCommon;
     }
 }

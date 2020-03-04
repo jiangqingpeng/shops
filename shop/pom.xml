@@ -19,6 +19,11 @@
 		<module>user</module>
 		<module>order</module>
 		<module>gateway</module>
+		<module>log</module>
+		<module>storage</module>
+		<module>shopping</module>
+		<module>account</module>
+		<module>common</module>
 	</modules>
 
 	<properties>
