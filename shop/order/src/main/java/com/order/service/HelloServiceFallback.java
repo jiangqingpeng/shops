@@ -1,6 +1,6 @@
 package com.order.service;
 
-import com.order.entity.User;
+import com.common.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component
