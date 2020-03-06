@@ -1,17 +1,26 @@
 package com.example.gateway.filter;
 
+import com.example.gateway.redis.RedisUtil;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * 自定义zuul的过滤器，继承ZuulFilter
  */
+@Component
 public class AccessFilter extends ZuulFilter {
     private static Logger logger = LoggerFactory.getLogger(AccessFilter.class);
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     //过滤器的类别，这里决定过滤器在请求的哪个生命周期执行，这里定义为pre，代表请求在路由之前执行
     @Override
@@ -39,14 +48,24 @@ public class AccessFilter extends ZuulFilter {
     public Object run() {
         RequestContext context = RequestContext.getCurrentContext();
         HttpServletRequest request = context.getRequest();
+        HttpServletResponse response = context.getResponse();
         logger.info("send {} request to ",  request.getMethod(),
                 request.getRequestURI().toString());
-        Object accessToken = request.getParameter("accessToken");
-        if( accessToken == null ){
-            logger.info(" accessToken is empty ");
+        Object token = request.getParameter("token");
+        if( token == null ){
+            logger.info(" token is empty ");
             context.setSendZuulResponse(false);
             context.setResponseStatusCode(404);
+            return null;
         }
+        /*Boolean resultBoolean = redisUtil.exist( String.valueOf( token ) );
+        if( resultBoolean == false ){
+            try {
+                response.sendRedirect("login");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }*/
         logger.info("access token ok");
         return null;
     }
