@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.galasys.clota.manage.order.mapper.OrderPckMapper">
+
+    <resultMap id="BaseResultMap" type="com.galasys.clota.manage.order.domain.OrderRmInfo">
+        <result column="id" property="id" jdbcType="BIGINT" />
+        <result column="order_id" property="orderId" jdbcType="BIGINT" />
+        <result column="hotel_id" property="hotelId" jdbcType="BIGINT" />
+        <result column="hotel_name" property="hotelName" jdbcType="VARCHAR" />
+        <result column="rm_type_id" property="rmTypeId" jdbcType="BIGINT" />
+        <result column="rm_name" property="rmName" jdbcType="VARCHAR" />
+        <result column="check_in_date" property="checkInDate" jdbcType="DATE" />
+        <result column="check_out_date" property="checkOutDate" jdbcType="DATE" />
+        <result column="room_night" property="roomNight" jdbcType="INTEGER" />
+        <result column="avg_price" property="avgPrice" jdbcType="DECIMAL" />
+        <result column="amount" property="amount" jdbcType="DECIMAL" />
+        <result column="quantity" property="quantity" jdbcType="INTEGER" />
+        <result column="checked_in" property="checkedIn" jdbcType="INTEGER" />
+        <result column="created_user" property="createdUser" jdbcType="BIGINT" />
+        <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+        <result column="updated_user" property="updatedUser" jdbcType="BIGINT" />
+        <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+        <result column="audit_status" property="auditStatus" jdbcType="VARCHAR" />
+        <result column="commission" property="commission" jdbcType="DECIMAL" />
+        <result column="package_items" property="packageItems" jdbcType="VARCHAR" />
+        <result column="parent_pck_id" property="parentPckId" jdbcType="BIGINT" />
+        <result column="order_no" property="orderNo" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <resultMap id="OrderSecondVO" type="com.galasys.clota.manage.order.controller.vo.OrderSecondVO">
+        <id column="id" property="id"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="visitor_product_id" property="visitorProductId"/>
+        <result column="order_detail_no" property="orderDetailNo"/>
+        <result column="origin_visit_date" property="originVisitDate"/>
+        <result column="order_product_id" property="orderProductId"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="third_order_no" property="thirdOrderNo"/>
+        <result column="org_id" property="orgId"/>
+        <result column="org_name" property="orgName"/>
+        <result column="order_channel" property="orderChannel"/>
+        <result column="order_amount" property="orderAmount"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="from_adress" property="fromAdress"/>
+        <result column="sale_agency" property="saleAgency"/>
+        <result column="poon" property="placeOrderOrgName"/>
+        <result column="product_id" property="productId"/>
+        <result column="product_name" property="productName"/>
+        <result column="quantity" property="quantity"/>
+        <result column="price" property="price"/>
+        <result column="total_price" property="totalPrice"/>
+        <result column="sms_status" property="smsStatus"/>
+        <result column="sync_status" property="syncStatus"/>
+        <result column="payment_status" property="paymentStatus"/>
+        <result column="audit_status" property="auditStatus"/>
+        <result column="payment_type" property="paymentType"/>
+        <result column="payment_time" property="paymentTime"/>
+        <result column="order_type" property="orderType"/>
+        <result column="product_type" property="productType"/>
+        <result column="quantity_picked" property="quantityPicked"/>
+        <result column="no_quantity_picked" property="noQuantityPicked"/>
+        <result column="quantity_verified" property="quantityVerified"/>
+        <result column="no_quantity_verified" property="noQuantityVerified"/>
+        <result column="quantity_refunded" property="quantityRefunded"/>
+        <result column="quantity_audit_refunded" property="quantityAuditRefunded"/>
+        <result column="quantity_rescheduled" property="quantityRescheduled"/>
+        <result column="quantity_audit_rescheduled" property="quantityAuditRescheduled"/>
+        <result column="quantity_overdue" property="quantityOverdue"/>
+        <result column="visitor_type" property="visitorType"/>
+        <result column="visitor_name" property="visitorName"/>
+        <result column="visitor_id" property="visitId"/>
+        <result column="phone_number" property="phoneNumber"/>
+        <result column="serial_no" property="serialNo"/>
+        <result column="document_info" property="documentInfo"/>
+        <result column="req_num" property="reqNum"/>
+        <result column="req_time" property="reqTime"/>
+        <result column="pass_num" property="passNum"/>
+        <result column="refund_procedure_fee" property="refundProcedureFee"/>
+        <result column="after_alter_date" property="afterAlterDate"/>
+        <result column="need_all_id" property="needAllId"/>
+        <result column="refund_id" property="refundId"/>
+        <result column="is_check" property="isCheck"/>
+        <result column="req_type" property="reqType"/>
+        <result column="offline_audit_result" property="offlineAuditResult"/>
+        <result column="policy_alter_rule" property="policyAlterRule"/>
+        <result column="policy_return_rule" property="policyReturnRule"/>
+        <result column="nominal_value" property="nominalValue"/>
+        <result column="condition_product_id" property="conditionProductId"/>
+        <result column="ocr_quantity" property="ocrQuantity"/>
+        <result column="check_in_date" property="checkInDate"/>
+        <result column="check_out_date" property="checkOutDate"/>
+        <result column="checked_in" property="checkedIn"/>
+        <result column="room_night" property="roomNight"/>
+        <result column="confirm_time" property="confirmTime"/>
+        <result column="deposit" property="deposit"/>
+        <result column="deposit_usea" property="depositUsea"/>
+        <result column="act_order_amount" property="actOrderAmount"/>
+        <result column="active_status" property="activeStatus"/>
+        <result column="status" property="status"/>
+        <result column="accountNo" property="accountNo"/>
+        <result column="gl_order_no" property="glOrderNo"/>
+        <result column="gl_order_id" property="glOrderId"/>
+        <result column="face_code" property="faceCode"/>
+        <result column="exchange_quantity" property="exchangeQuantity"/>
+        <result column="code_type" property="codeType"/>
+        <result column="promotion" property="promotion"/>
+        <result column="discount_amount" property="discountAmount"/>
+        <result column="after_discount_amount" property="afterDiscountAmount"/>
+        <result column="glProductType" property="glProductType"/>
+        <result column="parent_pck_id" property="parentPckId"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+    </resultMap>
+
+    <resultMap id="OrderVisitorRm" type="com.galasys.clota.manage.order.domain.OrderVisitorRm" >
+        <result column="id" property="id" jdbcType="BIGINT" />
+        <result column="order_id" property="orderId" jdbcType="BIGINT" />
+        <result column="order_detail_no" property="orderDetailNo" jdbcType="VARCHAR" />
+        <result column="order_rm_id" property="orderRmId" jdbcType="BIGINT" />
+        <result column="third_order_id" property="thirdOrderId" jdbcType="VARCHAR" />
+        <result column="hotel_id" property="hotelId" jdbcType="BIGINT" />
+        <result column="hotel_name" property="hotelName" jdbcType="VARCHAR" />
+        <result column="rm_type_id" property="rmTypeId" jdbcType="BIGINT" />
+        <result column="rm_name" property="rmName" jdbcType="VARCHAR" />
+        <result column="visitor_id" property="visitorId" jdbcType="VARCHAR" />
+        <result column="quantity" property="quantity" jdbcType="INTEGER" />
+        <result column="check_in_date" property="checkInDate" jdbcType="DATE" />
+        <result column="check_out_date" property="checkOutDate" jdbcType="CHAR" />
+        <result column="avg_price" property="avgPrice" jdbcType="DECIMAL" />
+        <result column="room_night" property="roomNight" jdbcType="INTEGER" />
+        <result column="amount" property="amount" jdbcType="DECIMAL" />
+        <result column="checked_in" property="checkedIn" jdbcType="INTEGER" />
+        <result column="order_status" property="orderStatus" jdbcType="VARCHAR" />
+        <result column="created_user" property="createdUser" jdbcType="BIGINT" />
+        <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+        <result column="updated_user" property="updatedUser" jdbcType="BIGINT" />
+        <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+        <result column="rm_rate_id" property="rmRateId" jdbcType="BIGINT" />
+        <result column="parent_pck_id" property="parentPckId" jdbcType="BIGINT" />
+        <result column="parent_order_no" property="parentOrderNo" jdbcType="VARCHAR" />
+        <result column="package_items" property="packageItems" jdbcType="VARCHAR" />
+        <result column="commission" property="commission" jdbcType="DECIMAL" />
+    </resultMap>
+
+
+    <select id="queryPckRoomByOrderId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        ori.id,
+        o1.id as order_id,
+        ohi.full_name as hotel_name,
+        o1.parent_pck_id,
+        ori.check_in_date,
+        ori.check_out_date,
+        ori.rm_type_id,
+        IFNULL(ori.room_night, 0) room_night,
+        IFNULL(ori.quantity, 0) quantity,
+        IFNULL(ori.avg_price, 0) avg_price,
+        IFNULL(ori.amount, 0) amount,
+        ori.checked_in,
+        IFNULL(os.commission, 0) as commission,
+        prt.`name` rm_name,
+        ori.hotel_id,
+        prc.package_items
+        from order_info o1
+        inner join order_rm_info ori on ori.order_id = o1.id
+        left join org_hotel_info ohi on ohi.id = ori.hotel_id
+        left join product_rm_type prt on prt.id = ori.rm_type_id
+        left join order_settle os on os.order_id = o1.id
+        left join product_rm_rate_code prc on prc.id = ori.rm_rate_id
+        where o1.product_type = 'hotel'
+        and o1.is_deleted = 'false'
+        and o1.parent_pck_id is not null
+        and o1.id = #{orderId}
+        group by ori.id
+        order by o1.created_time desc
+    </select>
+
+
+    <select id="queryPckTicketOrderId" parameterType="java.lang.Long" resultMap="OrderSecondVO">
+        select
+        o1.id,
+        o1.order_no,
+        ovp.order_detail_no,
+        o1.parent_pck_id,
+        o1.product_type,
+        org.org_name, <!--  org_name：供应商  -->
+        pt.product_name,
+        IFNULL(ovp.quantity, 0) quantity,
+        ovp.origin_visit_date,
+        IFNULL(opi.price,0) price,
+        IFNULL(o1.order_amount, 0) order_amount,
+        IFNULL(ovp.quantity_picked, 0) quantity_picked,
+        ovp.id as visitor_product_id,
+        IFNULL(os.commission, 0) commission,
+        IFNULL((ovp.quantity * opi.price), 0) as total_price,
+        IFNULL(o1.act_order_amount, 0) act_order_amount,
+        oif.org_name as poon,
+        ps.start_time,
+        ps.end_time
+        from order_info o1
+        inner join order_visitor_product ovp on ovp.order_id = o1.id
+        left join org_info org on org.id = o1.scenic_id
+        left join org_info xdqy on xdqy.id = o1.channel_id
+        left join order_settle os on os.order_id = o1.id and os.org_id = xdqy.id
+        left join order_product_info opi on opi.order_id = o1.id
+        left join product pt on pt.id = opi.product_id
+        left join product_pck_sub_pro ppsp on ppsp.parent_product_id = pt.id
+        left join org_info oif on oif.id = ppsp.supplier_id
+        left join product_pck_ticket_price_detail ppt on ppt.parent_product_id = pt.id
+        left join product_order_policy pop on pop.product_id = pt.id
+        left join channel_product_pck cpp on cpp.product_id = pt.id
+        left join policy_session ps on ps.id = o1.policy_session_id
+        where o1.product_type = 'ticket'
+        and o1.id = #{orderId}
+        and o1.is_deleted = 'false'
+        and o1.parent_pck_id is not null
+        group by ovp.order_detail_no
+        order by o1.created_time desc
+    </select>
+
+
+    <select id="queryPckRoomOrderVisitorRmByOrderId" parameterType="java.lang.Long" resultMap="OrderVisitorRm">
+        select
+        o1.parent_pck_id,
+        o1.id as order_id,
+        o1.order_no,
+        ovr.id,
+        ovr.order_detail_no,
+        ovr.checked_in,
+        ovr.check_in_date,
+        ovr.check_out_date,
+        IFNULL(ovr.room_night, 0) room_night,
+        IFNULL(ovr.avg_price, 0) avg_price,
+        IFNULL(ovr.quantity, 0) quantity,
+        ovr.order_status,
+        oh.full_name as hotel_name,
+        oh.id as hotel_id,
+        prt.`name` rm_name,
+        ovr.created_user,
+        ovr.created_time,
+        ovr.updated_user,
+        ovr.updated_time,
+        prc.package_items
+        from order_info o1
+        inner join order_rm_info ori on ori.order_id = o1.id
+        inner join order_visitor_rm ovr on ovr.order_rm_id = ori.id
+        left join org_hotel_info oh on oh.id = ovr.hotel_id
+        left join product_rm_type prt on prt.id = ovr.rm_type_id
+        left join product_rm_rate_code prc on prc.id = ori.rm_rate_id
+        where o1.product_type = 'hotel'
+        and o1.is_deleted = 'false'
+        and o1.parent_pck_id is not null
+        and o1.id = #{orderId}
+        group by ovr.id
+        order by o1.created_time desc
+    </select>
+
+
+    <select id="queryPckTicketOrderVisitorProductByOrderId" parameterType="java.lang.Long" resultMap="OrderSecondVO">
+        SELECT
+            order_info.id,
+            order_info.order_no,
+            order_visitor_product.id AS visitor_product_id,
+            order_visitor_product.order_detail_no,
+            order_visitor_product.origin_visit_date,
+            order_visitor_product.order_product_id,
+            order_info.created_time,
+            IFNULL(order_info.act_order_amount, 0) act_order_amount,
+            order_info.third_order_no,
+            orgifno.id AS org_id,
+            orgifno.org_name, <!-- 供应商 -->
+            account.nick_name,
+            CONCAT( ( SELECT province FROM sys_provinces WHERE provinceid = order_info.visitor_source_province ),
+                    ( SELECT city FROM sys_cities WHERE cityid = order_info.visitor_source_city),
+                    ( SELECT  area FROM sys_areas WHERE areaid = order_info.visitor_source_district )
+            ) from_adress,
+            order_info.order_channel,
+            order_info.order_amount,
+            order_info.payment_type,
+            order_info.payment_time,
+            order_info.product_type,
+            order_info.order_type,
+            orgifno2.org_name AS sale_agency,
+            orgifno3.org_name AS poon,
+            product.id AS product_id,
+            order_visitor_product.product_name,
+            order_visitor_product.quantity,
+            order_visitor_product.visitor_id,
+            IFNULL(order_product_info.price, 0) price,
+            ( order_visitor_product.quantity * order_product_info.price ) AS total_price,
+            order_visitor_product.sms_status,
+            order_visitor_product.sync_status,
+            order_info.payment_status,
+            order_info.audit_status,
+            order_visitor_product.quantity_picked,
+            (order_visitor_product.quantity - order_visitor_product.quantity_picked ) AS no_quantity_picked,
+            order_visitor_product.quantity_verified,
+            (order_visitor_product.quantity - order_visitor_product.quantity_verified - order_visitor_product.quantity_refunded) AS no_quantity_verified,
+            order_visitor_product.quantity_refunded,
+            order_visitor_product.quantity_audit_refunded,
+            order_visitor_product.quantity_rescheduled,
+            order_visitor_product.quantity_audit_rescheduled,
+            order_visitor_product.quantity_overdue,
+            order_visitor.visitor_type,
+            order_visitor.visitor_name,
+            order_visitor.phone_number,
+            order_visitor.document_info,
+            order_visitor_product.serial_no,
+            order_product_refund_alter.offline_audit_result offline_audit_result,
+            order_product_refund_alter.audit_status is_check,
+            order_product_refund_alter.req_type,
+            order_product_refund_alter.id AS refund_id,
+            order_product_refund_alter.req_num,
+            order_product_refund_alter.req_time,
+            order_product_refund_alter.pass_num,
+            order_product_refund_alter.refund_procedure_fee,
+            order_product_refund_alter.after_alter_date,
+            IF (order_product_refund_alter.audit_status = 'wait', 1, 2 ) refundasc,
+            product_sale_rule.need_all_id,
+            product_policy.alter_rule AS policy_alter_rule,
+            product_policy.return_rule AS policy_return_rule,
+            ocr.nominal_value,
+            ocr.condition_product_id,
+            IF ( find_in_set( ocr.condition_product_id, product.id ) > 0, order_visitor_product.quantity, 0 ) ocr_quantity,
+            order_tickets.active_status,
+            ps.start_time,
+            ps.end_time
+        FROM order_info
+        JOIN order_visitor_product ON order_info.id = order_visitor_product.order_id
+        /*INNER JOIN order_info oi on oi.id = order_info.parent_pck_id*/
+        LEFT JOIN account ON account.id = order_info.salesman
+        LEFT JOIN org_info orgifno ON orgifno.id = order_info.scenic_id
+        LEFT JOIN org_info orgifno2 ON orgifno2.id = order_info.org_sale_id
+        LEFT JOIN org_info orgifno3 ON orgifno3.id = order_info.channel_id
+        LEFT JOIN order_product_info ON order_product_info.id = order_visitor_product.order_product_id
+        LEFT JOIN product ON product.id = order_product_info.product_id
+        LEFT JOIN order_visitor ON order_visitor_product.visitor_id = order_visitor.id
+        LEFT JOIN order_tickets ON order_tickets.order_id = order_info.id
+        LEFT JOIN order_product_refund_alter ON order_product_refund_alter.visitor_product_id = order_visitor_product.id
+        LEFT JOIN product_sale_rule ON product_sale_rule.product_id = order_product_info.product_id
+        LEFT JOIN market_order ON market_order.order_id = order_info.id
+        LEFT JOIN market_type ON market_type.id = market_order.market_type_id
+        LEFT JOIN market_level ON market_level.id = market_order.market_level_id
+        LEFT JOIN product_policy ON order_product_info.policy_id = product_policy.id
+        LEFT JOIN order_coupon_relation ocr ON ocr.order_id = order_info.id
+        LEFT JOIN policy_session ps on ps.id = order_info.policy_session_id
+        WHERE order_info.id = #{orderId}
+        AND order_info.product_type = 'ticket'
+        AND order_info.is_deleted = 'false'
+        AND order_info.parent_pck_id is not null
+        GROUP BY order_visitor_product.order_detail_no
+        ORDER BY order_info.created_time DESC
+    </select>
+
+
+    <select id="selectPckRoomSecondByOrderDetailNo" parameterType="java.lang.String" resultMap="OrderVisitorRm">
+        select
+        ovr.id,
+        ovr.order_id,
+        ovr.order_detail_no,
+        ohi.full_name as hotel_name,
+        prt.`name` rm_name,
+        ovr.check_in_date,
+        ovr.check_out_date,
+        ovr.checked_in,
+        IFNULL(ovr.room_night, 0) room_night,
+        IFNULL(ovr.quantity, 0) quantity,
+        IFNULL(ovr.amount, 0) amount,
+        IFNULL(os.commission, 0) commission,
+        IFNULL(ovr.avg_price, 0) avg_price,
+        ovr.hotel_id,
+        ovr.rm_type_id,
+        ovr.order_status,
+        ovr.created_user,
+        ovr.created_time,
+        ovr.updated_user,
+        ovr.updated_time
+        /*
+        (SELECT GROUP_CONCAT(`name` SEPARATOR ',') FROM product_rm_type_custom_setting b
+            WHERE FIND_IN_SET(b.id, t1.package_items)
+        ) as package_items*/
+        from order_visitor_rm ovr
+        left join org_hotel_info ohi on ovr.hotel_id = ohi.id
+        left join product_rm_type prt on prt.id = ovr.rm_type_id
+        left join order_info oi on oi.id = ovr.order_id
+        left join org_info xdqy on xdqy.id = oi.channel_id
+        left join order_settle os on os.order_id = ovr.order_id and os.org_id = xdqy.id
+        /*left join product_rm_rate_code t1 on t1.hotel_id = ohi.id and FIND_IN_SET(prt.id, t1.rm_type_items)*/
+        where ovr.order_detail_no = #{orderDetailNo}
+        group by ovr.id
+    </select>
+
+    <!-- 根据套餐订单id查询入住日期和离店日期 -->
+    <select id="selectTicketHotelByOrderId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        order_visitor_rm.check_in_date,
+        order_visitor_rm.check_out_date,
+        order_visitor_rm.room_night,
+        order_info.id order_id,
+        order_info.order_no
+        from order_info <!-- 房类 -->
+        inner join
+        ( select parent_pck_id from order_info p where p.id = #{orderId} ) a on a.parent_pck_id = order_info.parent_pck_id
+        inner join order_visitor_rm on order_visitor_rm.order_id = order_info.id
+        <!-- orderId : 指票类订单id -->
+        where order_info.id != #{orderId} and order_info.product_type = 'hotel' and order_info.is_deleted = 'false'  LIMIT 1
+    </select>
+
+
+    <resultMap id="PckOrderSetterInfoResult" type="com.galasys.clota.manage.order.domain.PckOrderSetterInfo">
+        <result column="id" property="orderId" jdbcType="BIGINT" />
+        <result column="product_type" property="productType" jdbcType="VARCHAR" />
+        <result column="org_name" property="name" jdbcType="VARCHAR" />
+        <result column="commission" property="commission" jdbcType="DECIMAL" />
+    </resultMap>
+
+    <select id="queryPckOrderSetterInfo" parameterType="java.lang.Long" resultMap="PckOrderSetterInfoResult">
+        select
+        o1.product_type,
+        o3.org_name ,
+        IFNULL(o4.commission, 0) commission ,
+        o1.id
+        from order_info o1
+        left join org_info o3 on o3.id = o1.scenic_id
+        left join order_settle o4 on o4.order_id = o1.id
+        where o1.product_type = 'ticket' and o1.is_deleted = 'false'
+        and o1.parent_pck_id = #{parentPckId} group by o1.id
+        union ALL
+        select
+        o1.product_type,
+        o3.full_name as org_name ,
+        IFNULL(o4.commission, 0) commission ,
+        o1.id
+        from order_info o1
+        inner join order_rm_info on order_rm_info.order_id = o1.id
+        left join org_hotel_info o3 on o3.id = order_rm_info.hotel_id
+        left join order_settle o4 on o4.order_id = o1.id
+        where o1.product_type = 'hotel' and o1.is_deleted = 'false'
+        and o1.parent_pck_id = #{parentPckId}  group by o1.id
+    </select>
+
+</mapper>
